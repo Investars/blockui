@@ -1,6 +1,6 @@
 /*!
  * jQuery blockUI plugin
- * Version 2.65.0-2013.09.02
+ * Version 2.66.0-2013.10.09
  * Requires jQuery v1.7 or later
  *
  * Examples at: http://malsup.com/jquery/block/
@@ -107,12 +107,12 @@
 			});
 		};
 
-		$.blockUI.version = 2.65; // 2nd generation blocking at no extra cost!
+		$.blockUI.version = 2.66; // 2nd generation blocking at no extra cost!
 
 		// override these in your code to change the default behavior and style
 		$.blockUI.defaults = {
 			// message displayed when blocking (use null for no message)
-			message:  '<h1>Please wait...</h1>',
+			message: null, // '<h1>Please wait...</h1>',
 
 			title: null,		// title string; only used when theme == true
 			draggable: true,	// only used when theme == true (requires jquery-ui.js to be loaded)
@@ -576,7 +576,7 @@
 			var opts = e.data;
 			var target = $(e.target);
 			if (target.hasClass('blockOverlay') && opts.onOverlayClick)
-				opts.onOverlayClick();
+				opts.onOverlayClick(e);
 
 			// allow events within the message content
 			if (target.parents('div.' + opts.blockMsgClass).length > 0)
